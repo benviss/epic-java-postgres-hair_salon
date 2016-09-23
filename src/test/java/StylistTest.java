@@ -31,4 +31,11 @@ public class StylistTest {
    testStylist.save();
    assertTrue((Stylist.all().size() > 0));
   }
+
+  @Test
+  public void Stylist_FindsStylist_true() {
+   Stylist testStylist = new Stylist("Jon Doe");
+   testStylist.save();
+   assertTrue(testStylist.equals(Stylist.find(testStylist.getId())));
+  }
 }

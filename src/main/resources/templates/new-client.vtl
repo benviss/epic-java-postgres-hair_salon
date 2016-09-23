@@ -1,0 +1,11 @@
+<form action="/clients/new-client" method="post">
+  <label for="name">Enter Name: </label>
+  <input type="text" name="name" value=""><br>
+  <label for="stylist">Choose your Stylist</label>
+  <select name="stylist">
+    #foreach($stylist in $stylists)
+    <option value="option">$stylist.getName()</option>
+    #end
+  </select>
+  <button type="submit" name="button">Add Client</button>
+</form>
