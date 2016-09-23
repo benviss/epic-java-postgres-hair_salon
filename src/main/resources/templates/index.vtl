@@ -1,11 +1,11 @@
 <h3>Stylists Available: </h3>
 <hr>
-#if($stylists)
-  #foreach ($stylist in $stylists)
-    <p><a href="stylist/$stylist.getId()">$stylist.getName()</a></p>
-  #end
-#else
-  <p>No stylists currently added<p>
+#foreach ($stylist in $stylists)
+  <p><a href="stylist/$stylist.getId()">$stylist.getName()</a></p>
 #end
 <hr>
-<a href="/stylists/new">Add a Stylist</a>
+<a href="/stylists/new">Add a Stylist</a> ||
+<a href="/clients/new">Add a client</a>
+<br>
+<a href="/deleteStylists">Delete Stylists</a> ||
+<a href="/deleteClients">Delete Clients</a> 

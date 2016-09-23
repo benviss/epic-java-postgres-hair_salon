@@ -1,15 +1,12 @@
 <h3>$stylist.getName()</h3>
 <hr>
-#if($clients)
-  <ul>
-  #foreach($client in $clients)
-    <li>$client.getName()</li>
-  #end
-  </ul>
-#else
-  <p>$stylist.getName() has no clients at this time</p>
+<ul>
+#foreach($client in $clients)
+  <li><a href="/client/$client.getId()">$client.getName()</a></li>
 #end
+</ul>
 <hr>
-<p><a href="clients/new">Add client</a> || <a href="/">Back to Stylists</a>
+<p><a href="$stylist.getId()/clients/new">Add client to stylist</a> ||
+<a href="$stylist.getId()/update-stylist-info">Update Stylist information</a>
 <br>
 <br>

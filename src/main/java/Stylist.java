@@ -11,9 +11,13 @@ public class Stylist {
     this.name = name;
   }
 
+  public void setName(String _name) {
+    this.name = _name;
+  }
+
   public void save() {
-    String sql = "INSERT INTO stylists (name) VALUES (:name);";
     try(Connection con = DB.sql2o.open()) {
+      String sql = "INSERT INTO stylists (name) VALUES (:name);";
       this.id = (int) con.createQuery(sql, true)
       .addParameter("name", this.name)
       .executeUpdate()
@@ -54,5 +58,32 @@ public class Stylist {
 
   public String getName() {
     return name;
+  }
+
+  public static void delete() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "DELETE FROM stylists *;";
+      con.createQuery(sql)
+      .executeUpdate();
+    }
+  }
+
+  public static void deleteSingle(int _id) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "DELETE FROM stylists WHERE id=:id;";
+      con.createQuery(sql)
+      .addParameter("id", _id)
+      .executeUpdate();
+    }
+  }
+
+  public void update() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE stylists SET (name) = (:name) WHERE id=:id;";
+      con.createQuery(sql)
+      .addParameter("name", this.name)
+      .addParameter("id", this.id)
+      .executeUpdate();
+    }
   }
 }
