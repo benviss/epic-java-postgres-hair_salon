@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.ArrayList;
 import org.sql2o.*;
 
-public class Specialty {
+public class Stylist {
   private int id;
   private String name;
 
@@ -24,9 +24,12 @@ public class Specialty {
   public static List<Stylist> all() {
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM stylists;";
-      return con.createQuery(sql).executeAndFetch(Stylist.class);
+      return con.createQuery(sql)
+      .executeAndFetch(Stylist.class);
     }
   }
+
+
 
   public int getId() {
     return id;
