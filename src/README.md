@@ -1,27 +1,38 @@
-# _Dictionary_
+# _Hair Salon_
 
 #### By _Ben Vissotzky_
 
 ## Description
 
-_A console based application that will allow users to add in words to complete a user defined dictionary. They will be able to add multiple definitions per word_
+_A website admin page for a hair salon. Will let employees add stylists and clients for individual stylists. _
 
 ## Setup/Installation Requirements
 
 * _Copy the repository from GitHub_
 * _Compile the .java and run in console_
 
+## Installation Instructions
+- Download repository
+- Start Postgress Database
+- In PSQL:
+  - CREATE DATABASE hair_salon;
+  - \c hair_salon;
+  - CREATE TABLE clients (id serial primary key, name varchar, stylist_id int);
+  - CREATE TABLE stylists (id serial primary key, name varchar);
+  - CREATE DATABASE hair_salon WITH TEMPLATE hair_salon;
+
 
 ## BDD
-- create new words: "apple"
-- create new definitions: "a fruit"
-- add definitions to word: "apple: a fruit"
-- add multiple definitions to word: "apple: a fruit; tasty fruit"
-- add multiple words: "apple", "orange"
-- display words and definitions to user
+- Create new Stylist: "Jeremy"
+- Create new Client: "Bill"
+- Assign client to stylist: "Jeremy" stylist for "Bill"
+- Update information for Stylist: "Jeremy Rogers"
+- Update information for Client: "Billy Bob"
+- Delete clients: delete "Billy Bob"; "Client list empty"
+- Delete Stylist: delete "Jeremy Rogers", "Stylist list empty"
 
 ## GitHub link
-https://github.com/benviss/dictionary_java
+https://github.com/benviss/epic-java-postgres-hair_salon
 
 ## Licensing
 
