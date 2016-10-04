@@ -28,6 +28,17 @@ public class Client {
     }
   }
 
+  @Override
+   public boolean equals(Object otherClient) {
+     if(!(otherClient instanceof Client)) {
+       return false;
+     } else {
+       Client newClient = (Client) otherClient;
+       return this.getName().equals(newClient.getName()) && this.getId() == newClient.getId();
+     }
+   }
+
+
   public static List<Client> all() {
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM clients;";
